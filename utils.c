@@ -6,11 +6,26 @@
 /*   By: hpehliva <hpehliva@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/15 01:00:00 by hpehliva          #+#    #+#             */
-/*   Updated: 2025/12/17 20:03:03 by hpehliva         ###   ########.fr       */
+/*   Updated: 2025/12/17 21:15:38 by hpehliva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	ft_free_split(char **parts)
+{
+	size_t	i;
+
+	if (!parts)
+		return ;
+	i = 0;
+	while (parts[i])
+	{
+		free(parts[i]);
+		i++;
+	}
+	free(parts);
+}
 
 t_stack	*get_tail_node(t_stack *stack)
 {

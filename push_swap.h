@@ -37,18 +37,21 @@ void rr(t_stack **a, t_stack **b, bool check);
 void radix_short(t_stack **a, t_stack **b);
 void assign_indicators(t_stack **a);
 t_stack *find_smallest_element(t_stack *a);
+void small_sort(t_stack **a, t_stack **b);
 
 // Parse and initialize and error handling
 bool parse_and_init(t_stack **stack_a, int ac, char **av);
 int invalid_entries(char *str);
 bool is_ordered(t_stack *stack);
-int check_dub(t_stack *a, int size);
-void add_to_stack(t_stack **stack, int size);
+int check_dub(t_stack *a, int value);
+void add_to_stack(t_stack **stack, int value);
 void handle_error();
 
 // Utils functions
-long ft_atol(char *str);
+long ft_atol(const char *str);
 void free_stack(t_stack **stack);
+char **ft_split(char const *s, char c);
+void ft_free_split(char **parts);
 
 
 
