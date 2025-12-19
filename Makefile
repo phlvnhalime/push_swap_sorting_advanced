@@ -11,25 +11,30 @@
 # **************************************************************************** #
 
 NAME = push_swap
+CC = cc
+CFLAGS = -Wall -Wextra -Werror
 LIBFT_DIR = Libft
 LIBFT = $(LIBFT_DIR)/libft.a
 
-SRCS = main.c \
-		assign_indicators.c \
-		small_sort.c \
-		sorting_advanced.c \
-		utils.c \
-		push_operators.c \
-		swap_operators.c \
-		reverse_operators.c \
-		rotate_operators.c
+SRCS = 	algorithm/algorithm_movements_utils.c \
+		algorithm/algorithm_movements.c \
+		algorithm/algorithm_utils.c \
+		algorithm/assign_stack.c \
+		algorithm/small_sort.c \
+		algorithm/sorting_advanced.c \
+		operators/push_operators.c \
+		operators/swap_operators.c \
+		operators/reverse_operators.c \
+		operators/rotate_operators.c \
+		srcs/utils.c \
+		main.c
 
 OBJS = $(SRCS:.c=.o)
 
 all: $(LIBFT) $(NAME)
 
 $(LIBFT):
-	$(MAKE) -C $(LIBFT_DIR)
+	make -C $(LIBFT_DIR)
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
@@ -39,11 +44,11 @@ $(NAME): $(OBJS) $(LIBFT)
 
 clean:
 	rm -f $(OBJS)
-	$(MAKE) -C $(LIBFT_DIR) clean
+	make -C $(LIBFT_DIR) clean
 
 fclean: clean
 	rm -f $(NAME)
-	$(MAKE) -C $(LIBFT_DIR) fclean
+	make -C $(LIBFT_DIR) fclean
 
 re: fclean all
 

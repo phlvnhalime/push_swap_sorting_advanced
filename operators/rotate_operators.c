@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../lib/push_swap.h"  
 
 static void rotate(t_stack **stack)
 {
@@ -18,7 +18,7 @@ static void rotate(t_stack **stack)
     t_stack *tail; // kuyruk
     int len;
 
-    len = count_nodes(*stack);
+    len = count_elements(*stack);
     if(!*stack || !stack || len == 1)
         return ;
     top = *stack;

@@ -1,51 +1,51 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   swap_operators.c                                   :+:      :+:    :+:   */
+/*   reverse_operators.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hpehliva <hpehliva@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/15 00:56:47 by hpehliva          #+#    #+#             */
-/*   Updated: 2025/12/19 09:28:10 by hpehliva         ###   ########.fr       */
+/*   Created: 2025/12/15 00:56:35 by hpehliva          #+#    #+#             */
+/*   Updated: 2025/12/17 22:23:28 by hpehliva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../lib/push_swap.h"
 
-static void swap(t_stack **stack)
+static void reverse_rotate(t_stack **stack)
 {
     int len;
+    t_stack *last;
 
     len = count_elements(*stack);
     if(!*stack || !stack || len == 1)
         return ;
-    *stack = (*stack)->next;
-    (*stack)->before->before = *stack;
-    (*stack)->before->next = (*stack)->next;
-    if((*stack)->next)
-        (*stack)->next->before = (*stack)->before;
-    (*stack)->next = (*stack)->before;
-    (*stack)->before = NULL;
+    last = get_tail_node(*stack);
+    last->before->next = NULL;
+    last->next = *stack;
+    last->before = NULL;
+    *stack = last;
+    last->next->before = last;
 }
 
-void sa(t_stack **a, bool check)
+void rra(t_stack **a, bool check)
 {
-    swap(a);
+    reverse_rotate(a);
     if(!check)
-        write(1, "sa\n", 3);
+        write(1, "rra\n", 4);
 }
 
-void sb(t_stack **b, bool check)
+void rrb(t_stack **b, bool check)
 {
-    swap(b);
+    reverse_rotate(b);
     if(!check)
-        write(1, "sb\n", 3);
+        write(1, "rrb\n", 4);
 }
 
-void ss(t_stack **a, t_stack **b, bool check)
+void rrr(t_stack **a, t_stack **b, bool check)
 {
-	swap(a);
-	swap(b);
+	reverse_rotate(a);
+	reverse_rotate(b);
 	if (!check)
-		write(1, "ss\n", 3);
+		write(1, "rrr\n", 4);
 }

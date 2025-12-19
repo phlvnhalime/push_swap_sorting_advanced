@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "lib/push_swap.h"
 
 
 /*
@@ -193,7 +193,7 @@ int main(int ac, char **av)
         return (0);
     }
 
-    size = count_nodes(stack_a);
+    size = count_elements(stack_a);
     if (size <= 5)
         small_sort(&stack_a, &stack_b);
     else

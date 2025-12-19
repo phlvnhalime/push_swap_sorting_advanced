@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../lib/push_swap.h"
 
 static int	find_min_value(t_stack *a)
 {
@@ -45,7 +45,7 @@ static void	bring_pos_to_top(t_stack **a, int pos)
 {
 	int	size;
 
-	size = count_nodes(*a);
+	size = count_elements(*a);
 	if (pos <= size / 2)
 	{
 		while (pos-- > 0)
@@ -93,7 +93,7 @@ void	small_sort(t_stack **a, t_stack **b)
 	int	min;
 	int	pos;
 
-	size = count_nodes(*a);
+	size = count_elements(*a);
 	if (size <= 1)
 		return ;
 	if (size == 2)
