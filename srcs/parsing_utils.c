@@ -95,4 +95,3 @@ bool	is_ordered(t_stack *stack)
 	}
 	return (true);
 }
-

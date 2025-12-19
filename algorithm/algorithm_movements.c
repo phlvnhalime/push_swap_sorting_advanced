@@ -6,20 +6,19 @@
 /*   By: hpehliva <hpehliva@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/19 11:13:18 by hpehliva          #+#    #+#             */
-/*   Updated: 2025/12/19 11:14:59 by hpehliva         ###   ########.fr       */
+/*   Updated: 2025/12/19 15:11:44 by hpehliva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../lib/push_swap.h"
 
-
 t_stack	*pick_cheapest(t_stack *b)
 {
-	t_stack	*best;
 	int		best_cost;
 	int		best_common;
 	int		c;
 	int		common;
+	t_stack	*best;
 
 	best = b;
 	best_cost = move_cost(b);
@@ -41,9 +40,9 @@ t_stack	*pick_cheapest(t_stack *b)
 
 void	move_cheapest_to_a(t_stack **a, t_stack **b)
 {
-	t_stack	*best;
 	int		ca;
 	int		cb;
+	t_stack	*best;
 
 	best = pick_cheapest(*b);
 	ca = best->cost_a;

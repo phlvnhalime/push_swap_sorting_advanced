@@ -6,7 +6,7 @@
 /*   By: hpehliva <hpehliva@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/19 11:13:12 by hpehliva          #+#    #+#             */
-/*   Updated: 2025/12/19 11:15:48 by hpehliva         ###   ########.fr       */
+/*   Updated: 2025/12/19 15:13:54 by hpehliva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ void	rotate_a_cost(t_stack **a, int *cost)
 		(*cost)++;
 	}
 }
-
 
 void	rotate_b_cost(t_stack **b, int *cost)
 {
@@ -65,8 +64,8 @@ void	rotate_both_cost(t_stack **a, t_stack **b, int *ca, int *cb)
 */
 int	move_cost(t_stack *node)
 {
-	if ((node->cost_a >= 0 && node->cost_b >= 0)
-		|| (node->cost_a <= 0 && node->cost_b <= 0))
+	if ((node->cost_a >= 0 && node->cost_b >= 0) || (node->cost_a <= 0
+			&& node->cost_b <= 0))
 	{
 		if (abs_i(node->cost_a) > abs_i(node->cost_b))
 			return (abs_i(node->cost_a));
@@ -80,8 +79,8 @@ int	common_rot_part(t_stack *node)
 	int	a;
 	int	b;
 
-	if (!((node->cost_a >= 0 && node->cost_b >= 0)
-			|| (node->cost_a <= 0 && node->cost_b <= 0)))
+	if (!((node->cost_a >= 0 && node->cost_b >= 0) || (node->cost_a <= 0
+				&& node->cost_b <= 0)))
 		return (0);
 	a = abs_i(node->cost_a);
 	b = abs_i(node->cost_b);

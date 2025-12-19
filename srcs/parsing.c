@@ -6,13 +6,13 @@
 /*   By: hpehliva <hpehliva@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/19 14:00:00 by hpehliva          #+#    #+#             */
-/*   Updated: 2025/12/19 14:00:00 by hpehliva         ###   ########.fr       */
+/*   Updated: 2025/12/19 15:08:06 by hpehliva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../lib/push_swap.h"
 
-static int	parse_conditions_utils(char **parts, t_stack **stack_a)
+static bool	parse_conditions_utils(char **parts, t_stack **stack_a)
 {
 	int		j;
 	long	num;
@@ -21,21 +21,12 @@ static int	parse_conditions_utils(char **parts, t_stack **stack_a)
 	while (parts[j])
 	{
 		if (invalid_entries(parts[j]))
-		{
-			ft_free_split(parts);
-			return (0);
-		}
+			return (ft_free_split(parts), false);
 		num = ft_atol(parts[j]);
 		if (num > INT_MAX || num < INT_MIN)
-		{
-			ft_free_split(parts);
-			return (0);
-		}
+			return (ft_free_split(parts), false);
 		if (check_dub(*stack_a, (int)num))
-		{
-			ft_free_split(parts);
-			return (0);
-		}
+			return (ft_free_split(parts), false);
 		add_to_stack(stack_a, (int)num);
 		j++;
 	}
@@ -64,4 +55,3 @@ bool	parse_and_init(t_stack **stack_a, int ac, char **av)
 	}
 	return (true);
 }
-

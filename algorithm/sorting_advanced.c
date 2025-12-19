@@ -6,11 +6,38 @@
 /*   By: hpehliva <hpehliva@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/17 23:00:00 by hpehliva          #+#    #+#             */
-/*   Updated: 2025/12/19 09:28:02 by hpehliva         ###   ########.fr       */
+/*   Updated: 2025/12/19 15:14:02 by hpehliva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../lib/push_swap.h"
+
+static void	target_conditions(t_stack *curr, int b_index)
+{
+	int	best_index;
+	int	best_pos;
+	int	min_index;
+	int	min_pos;
+
+	best_index = INT_MAX;
+	best_pos = 0;
+	min_index = INT_MAX;
+	min_pos = 0;
+	while (curr)
+	{
+		if (curr->index < min_index)
+		{
+			min_index = curr->index;
+			min_pos = curr->pos;
+		}
+		if (curr->index > b_index && curr->index < best_index)
+		{
+			best_index = curr->index;
+			best_pos = curr->pos;
+		}
+		curr = curr->next;
+	}
+}
 
 /*
 	Target in A for node b:
@@ -22,28 +49,13 @@ static int	get_target_pos(t_stack *a, int b_index)
 	t_stack	*cur;
 	int		best_index;
 	int		best_pos;
-	int		min_index;
 	int		min_pos;
 
 	best_index = INT_MAX;
 	best_pos = 0;
-	min_index = INT_MAX;
 	min_pos = 0;
 	cur = a;
-	while (cur)
-	{
-		if (cur->index < min_index)
-		{
-			min_index = cur->index;
-			min_pos = cur->pos;
-		}
-		if (cur->index > b_index && cur->index < best_index)
-		{
-			best_index = cur->index;
-			best_pos = cur->pos;
-		}
-		cur = cur->next;
-	}
+	target_conditions(cur, b_index);
 	if (best_index != INT_MAX)
 		return (best_pos);
 	return (min_pos);
@@ -75,8 +87,6 @@ static void	set_targets_and_costs(t_stack *a, t_stack *b)
 	}
 }
 
-
-
 void	sorting_advanced(t_stack **a, t_stack **b)
 {
 	if (!a || !*a)
@@ -91,4 +101,3 @@ void	sorting_advanced(t_stack **a, t_stack **b)
 	}
 	final_rotate_to_min(a);
 }
-

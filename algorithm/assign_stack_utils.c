@@ -6,7 +6,7 @@
 /*   By: hpehliva <hpehliva@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/19 12:08:17 by hpehliva          #+#    #+#             */
-/*   Updated: 2025/12/19 12:57:31 by hpehliva         ###   ########.fr       */
+/*   Updated: 2025/12/19 15:08:32 by hpehliva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,4 +65,3 @@ void	added_notes_a(t_stack **nodes, t_stack *a)
 		a = a->next;
 	}
 }
-

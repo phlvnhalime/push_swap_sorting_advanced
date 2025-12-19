@@ -38,4 +38,3 @@ long	ft_atol(const char *str)
 	}
 	return (num * sign);
 }
-

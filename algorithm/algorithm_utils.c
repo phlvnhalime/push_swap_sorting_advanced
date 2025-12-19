@@ -12,27 +12,24 @@
 
 #include "../lib/push_swap.h"
 
-t_stack *find_smallest_element(t_stack *a)
+t_stack	*find_smallest_element(t_stack *a)
 {
-  t_stack *small;
-  t_stack *curr;
+	t_stack	*small;
+	t_stack	*curr;
 
-  small = NULL;
-  curr = a;
-  while(curr)
-  {
-    if(curr->index == -1)
-    {
-      if(small == NULL || curr->value < small->value)
-        small = curr;
-    }
-    curr = curr->next;
-  }
-  return (small);
-
+	small = NULL;
+	curr = a;
+	while (curr)
+	{
+		if (curr->index == -1)
+		{
+			if (small == NULL || curr->value < small->value)
+				small = curr;
+		}
+		curr = curr->next;
+	}
+	return (small);
 }
-
-
 
 int	abs_i(int x)
 {
@@ -53,7 +50,6 @@ void	set_positions(t_stack *stack)
 		stack = stack->next;
 	}
 }
-
 
 int	find_min_index_pos(t_stack *a)
 {

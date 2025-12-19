@@ -6,7 +6,7 @@
 /*   By: hpehliva <hpehliva@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/15 01:00:00 by hpehliva          #+#    #+#             */
-/*   Updated: 2025/12/18 18:06:50 by hpehliva         ###   ########.fr       */
+/*   Updated: 2025/12/19 15:12:34 by hpehliva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,13 +36,11 @@ t_stack	*get_tail_node(t_stack *stack)
 	return (stack);
 }
 
-
-
-void free_stack(t_stack **stack)
+void	free_stack(t_stack **stack)
 {
-	t_stack *temp;
+	t_stack	*temp;
 
-	while(*stack)
+	while (*stack)
 	{
 		temp = (*stack)->next;
 		free(*stack);
