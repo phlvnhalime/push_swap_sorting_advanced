@@ -6,7 +6,7 @@
 /*   By: hpehliva <hpehliva@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/15 01:30:38 by hpehliva          #+#    #+#             */
-/*   Updated: 2025/12/19 15:12:10 by hpehliva         ###   ########.fr       */
+/*   Updated: 2025/12/19 17:31:14 by hpehliva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,7 +115,7 @@ void	assign_indicators(t_stack **a)
 	while (i < len)
 	{
 		small = find_smallest_element(*a);
-		if (small)
+		if (small) 
 			small->index = i;
 		i++;
 	}
